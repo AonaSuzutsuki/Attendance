@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Attendance.Views.Calculator"
+    xmlns:models="clr-namespace:Attendance.Models"
+    BackgroundColor="#000">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="CalcButton" TargetType="Button">
+                <Setter Property="TextColor" Value="#fff" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="BorderWidth" Value="0" />
+                <Setter Property="BorderRadius" Value="0" />
+                <Setter Property="BackgroundColor" Value="#555" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+        <Grid Margin="10" VerticalOptions="Center">
+            <Label FontSize="50" Text="{Binding ResultText.Value}" TextColor="#fff" />
+        </Grid>
+        
+         <Grid Grid.Row="1">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            
+            <Button Grid.Row="0" Grid.Column="0"
+                    Style="{StaticResource CalcButton}"
+                    Text="AC"
+                    Command="{Binding ButtonPushed}"
+                    CommandParameter="{x:Static models:CalculatorType.AC}" />
+            
+            <Button Grid.Row="1" Grid.Column="0"
+                    Style="{StaticResource CalcButton}"
+                    Text="7"
+                    Command="{Binding ButtonPushed}"
+                    CommandParameter="{x:Static models:CalculatorType._7}" />
+            <Button Grid.Row="1" Grid.Column="1"
+                    Style="{StaticResource CalcButton}"
+                    Text="8"
+                    Command="{Binding ButtonPushed}"
+                    CommandParameter="{x:Static models:CalculatorType._8}" />
+            <Button Grid.Row="1" Grid.Column="2"
+                    Style="{StaticResource CalcButton}"
+                    Text="9"
+                    Command="{Binding ButtonPushed}"
+                    CommandParameter="{x:Static models:CalculatorType._9}" />
+            
+            <Button Grid.Row="2" Grid.Column="0"
+                    Style="{StaticResource CalcButton}"
+                    Text="4"
+                    Command="{Binding ButtonPushed}"
+                    CommandParameter="{x:Static models:CalculatorType._4}" />
+            <Button Grid.Row="2" Grid.Column="1"
+                    Style="{StaticResource CalcButton}"
+                    Text="5"
+                    Command="{Binding ButtonPushed}"
+                    CommandParameter="{x:Static models:CalculatorType._5}" />
+            <Button Grid.Row="2" Grid.Column="2"
+                    Style="{StaticResource CalcButton}"
+                    Text="6"
+                    Command="{Binding ButtonPushed}"
+                    CommandParameter="{x:Static models:CalculatorType._6}" />
+            
+            <Button Grid.Row="3" Grid.Column="0"
+                    Style="{StaticResource CalcButton}"
+                    Text="1"
+                    Command="{Binding ButtonPushed}"
+                    CommandParameter="{x:Static models:CalculatorType._1}" />
+            <Button Grid.Row="3" Grid.Column="1"
+                    Style="{StaticResource CalcButton}"
+                    Text="2"
+                    Command="{Binding ButtonPushed}"
+                    CommandParameter="{x:Static models:CalculatorType._2}" />
+            <Button Grid.Row="3" Grid.Column="2"
+                    Style="{StaticResource CalcButton}"
+                    Text="3"
+                    Command="{Binding ButtonPushed}"
+                    CommandParameter="{x:Static models:CalculatorType._3}" />
+            
+            <Button Grid.Row="4" Grid.Column="0"
+                    Style="{StaticResource CalcButton}"
+                    Text="0"
+                    Command="{Binding ButtonPushed}"
+                    CommandParameter="{x:Static models:CalculatorType._0}" />
+            
+            <Button Grid.Row="0" Grid.Column="3"
+                    Style="{StaticResource CalcButton}"
+                    Text="/"
+                    BackgroundColor="#4090ff"
+                    Command="{Binding ButtonPushed}"
+                    CommandParameter="{x:Static models:CalculatorType.Div}" />
+            <Button Grid.Row="1" Grid.Column="3"
+                    Style="{StaticResource CalcButton}"
+                    Text="*"
+                    BackgroundColor="#4090ff"
+                    Command="{Binding ButtonPushed}"
+                    CommandParameter="{x:Static models:CalculatorType.Mul}" />
+            <Button Grid.Row="2" Grid.Column="3"
+                    Style="{StaticResource CalcButton}"
+                    Text="-"
+                    BackgroundColor="#4090ff"
+                    Command="{Binding ButtonPushed}"
+                    CommandParameter="{x:Static models:CalculatorType.Minus}" />
+            <Button Grid.Row="3" Grid.Column="3"
+                    Style="{StaticResource CalcButton}"
+                    Text="+"
+                    BackgroundColor="#4090ff"
+                    Command="{Binding ButtonPushed}"
+                    CommandParameter="{x:Static models:CalculatorType.Plus}" />
+            <Button Grid.Row="4" Grid.Column="3"
+                    Style="{StaticResource CalcButton}"
+                    Text="="
+                    BackgroundColor="#4090ff"
+                    Command="{Binding ButtonPushed}"
+                    CommandParameter="{x:Static models:CalculatorType.Equal}" />
+            
+            <Button Grid.Row="0" Grid.Column="1"
+                    Style="{StaticResource CalcButton}"
+                    Text=""
+                    BackgroundColor="#333" />
+            <Button Grid.Row="0" Grid.Column="2"
+                    Style="{StaticResource CalcButton}"
+                    BackgroundColor="#333"
+                    Text="" />
+            <Button Grid.Row="4" Grid.Column="1"
+                    Style="{StaticResource CalcButton}"
+                    BackgroundColor="#333"
+                    Text="" />
+            <Button Grid.Row="4" Grid.Column="2"
+                    Style="{StaticResource CalcButton}"
+                    BackgroundColor="#333"
+                    Text="" />
+        </Grid>
+        
+    </Grid>
+</ContentPage>

@@ -1,5 +1,37 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Attendance.Views.MainPage">
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ctrl="clr-namespace:Denomination.Views.Controls"
+    xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+    x:Class="Attendance.Views.MainPage"
+    BackgroundColor="#000">
     <ContentPage.Content>
+        <Grid Padding="10">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            
+            <Grid Grid.Row="0">
+                <Label FontSize="50" Text="100" TextColor="#fff" />
+            </Grid>
+            
+            <Grid Grid.Row="1" RowSpacing="0">
+                <flv:FlowListView FlowItemsSource="{Binding Data}"
+                                  SeparatorVisibility="None"
+                                  FlowUseAbsoluteLayoutInternally="True"
+                                  FlowColumnCount="3"
+                                  HasUnevenRows="True"
+                                  BackgroundColor="Transparent">
+                    <flv:FlowListView.FlowColumnTemplate>
+                        <DataTemplate>
+                            <ctrl:ListButton Image="{Binding Image}" Name="{Binding Name}" TappedCommand="{Binding TappedCommand}" />
+                        </DataTemplate>
+                    </flv:FlowListView.FlowColumnTemplate>
+                </flv:FlowListView>
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

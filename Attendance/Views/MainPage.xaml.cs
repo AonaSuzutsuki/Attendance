@@ -10,6 +10,10 @@ namespace Attendance.Views
         public MainPage()
         {
             InitializeComponent();
+
+            var model = new Models.MainPageModel();
+            var vm = new ViewModels.MainPageViewModel(Navigation, model);
+            BindingContext = vm;
         }
     }
 }

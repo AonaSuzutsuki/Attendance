@@ -1,4 +1,5 @@
 ﻿using System;
+using Attendance.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,9 @@ namespace Attendance
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
+            var navigationPage = Current.MainPage as NavigationPage;
+            navigationPage.BarBackgroundColor = Color.Black;
         }
 
         protected override void OnStart()

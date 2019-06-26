@@ -4,19 +4,15 @@
              x:Class="Denomination.Views.Controls.ListButton">
     <Grid HeightRequest="120">
         <Grid x:Name="grid">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="120" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
                 <Image Source="{Binding Image.Value}" HorizontalOptions="Center" VerticalOptions="Center" />
             </Grid>
-            <Grid Grid.Column="1" Padding="20,0,0,0">
-                <Label Text="{Binding Name.Value}" TextColor="#58BE89" FontSize="Default" VerticalTextAlignment="Center" />
-            </Grid>
-            <Grid Grid.Column="2">
-                <Label Text=">" TextColor="#58BE89" FontSize="Large" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" />
+            <Grid Grid.Row="1">
+                <Label Text="{Binding Name.Value}" TextColor="#58BE89" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" />
             </Grid>
         </Grid>
         <Grid>

@@ -134,5 +134,50 @@
       <Name>Attendance</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Default-Portrait.png" />
+    <BundleResource Include="Resources\Default-Portrait%402x.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\Icon-60%402x.png" />
+    <BundleResource Include="Resources\Icon-60%403x.png" />
+    <BundleResource Include="Resources\Icon-76.png" />
+    <BundleResource Include="Resources\Icon-76%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-40.png" />
+    <BundleResource Include="Resources\Icon-Small-40%402x.png" />
+    <BundleResource Include="Resources\Icon-Small-40%403x.png" />
+    <BundleResource Include="Resources\Icon-Small.png" />
+    <BundleResource Include="Resources\Icon-Small%402x.png" />
+    <BundleResource Include="Resources\Icon-Small%403x.png" />
+    <BundleResource Include="Resources\S__3399715.jpg" />
+    <BundleResource Include="Resources\btn-ok-disable.png" />
+    <BundleResource Include="Resources\btn-ok-enable.png" />
+    <BundleResource Include="Resources\checkbtn-cross-off.png" />
+    <BundleResource Include="Resources\checkbtn-cross-on.png" />
+    <BundleResource Include="Resources\checkbtn-tick-off.png" />
+    <BundleResource Include="Resources\checkbtn-tick-on.png" />
+    <BundleResource Include="Resources\header_top.png" />
+    <BundleResource Include="Resources\hukidasi_btn.png" />
+    <BundleResource Include="Resources\menubar-sintyaku.png" />
+    <BundleResource Include="Resources\tab.png" />
+    <BundleResource Include="Resources\Top\top-icon-calendar.png" />
+    <BundleResource Include="Resources\Top\top-icon-calendar%402x.png" />
+    <BundleResource Include="Resources\Top\top-icon-calendar%403x.png" />
+    <BundleResource Include="Resources\Top\top-icon-class.png" />
+    <BundleResource Include="Resources\Top\top-icon-class%402x.png" />
+    <BundleResource Include="Resources\Top\top-icon-class%403x.png" />
+    <BundleResource Include="Resources\Top\top-icon-extra.png" />
+    <BundleResource Include="Resources\Top\top-icon-extra%402x.png" />
+    <BundleResource Include="Resources\Top\top-icon-extra%403x.png" />
+    <BundleResource Include="Resources\Top\top-icon-news.png" />
+    <BundleResource Include="Resources\Top\top-icon-news%402x.png" />
+    <BundleResource Include="Resources\Top\top-icon-news%403x.png" />
+    <BundleResource Include="Resources\Top\top-icon-setting.png" />
+    <BundleResource Include="Resources\Top\top-icon-setting%402x.png" />
+    <BundleResource Include="Resources\Top\top-icon-setting%403x.png" />
+    <BundleResource Include="Resources\news\news-icon-read.png" />
+    <BundleResource Include="Resources\news\news-icon-unread.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
