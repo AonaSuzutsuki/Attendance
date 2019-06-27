@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Attendance.Models;
@@ -15,11 +16,13 @@ namespace Attendance.ViewModels
         public ButtonInfoViewModel(ButtonInfo buttonInfo)
         {
             this.Name = ReactiveProperty.FromObject(buttonInfo, m => m.Name);
-            this.Image = ReactiveProperty.FromObject(buttonInfo, m => m.Image);
+            this.Count = ReactiveProperty.FromObject(buttonInfo, m => m.Count);
+            this.CommandParameter = buttonInfo.Sender;
         }
 
         public ReactiveProperty<string> Name { get; }
-        public ReactiveProperty<ImageSource> Image { get; }
+        public ReactiveProperty<int> Count { get; }
+        public ButtonInfo CommandParameter { get; }
         public ICommand TappedCommand { get; set; }
     }
 
@@ -32,11 +35,15 @@ namespace Attendance.ViewModels
             this.model = model;
 
             this.Data = model.Buttons.ToReadOnlyReactiveCollection(m => new ButtonInfoViewModel(m));
-            this.AssociateCommand(0, CreateAsyncReactiveCommand(async () => await Information_ClickedAsync()));
-            this.AssociateCommand(1, CreateAsyncReactiveCommand(async () => await Information_ClickedAsync()));
-            this.AssociateCommand(2, CreateAsyncReactiveCommand(async () => await Information_ClickedAsync()));
-            this.AssociateCommand(3, CreateAsyncReactiveCommand(async () => await Information_ClickedAsync()));
-            this.AssociateCommand(4, CreateAsyncReactiveCommand(async () => await Information_ClickedAsync()));
+            this.AssociateCommand(0, CreateAsyncReactiveCommand<ButtonInfo>(async (price) => await Information_ClickedAsync(price)));
+            this.AssociateCommand(1, CreateAsyncReactiveCommand<ButtonInfo>(async (price) => await Information_ClickedAsync(price)));
+            this.AssociateCommand(2, CreateAsyncReactiveCommand<ButtonInfo>(async (price) => await Information_ClickedAsync(price)));
+            this.AssociateCommand(3, CreateAsyncReactiveCommand<ButtonInfo>(async (price) => await Information_ClickedAsync(price)));
+            this.AssociateCommand(4, CreateAsyncReactiveCommand<ButtonInfo>(async (price) => await Information_ClickedAsync(price)));
+            this.AssociateCommand(5, CreateAsyncReactiveCommand<ButtonInfo>(async (price) => await Information_ClickedAsync(price)));
+            this.AssociateCommand(6, CreateAsyncReactiveCommand<ButtonInfo>(async (price) => await Information_ClickedAsync(price)));
+            this.AssociateCommand(7, CreateAsyncReactiveCommand<ButtonInfo>(async (price) => await Information_ClickedAsync(price)));
+            this.AssociateCommand(8, CreateAsyncReactiveCommand<ButtonInfo>(async (price) => await Information_ClickedAsync(price)));
         }
 
         private void AssociateCommand(int index, ICommand cmd)
@@ -46,14 +53,15 @@ namespace Attendance.ViewModels
         }
 
         #region Properties
+        public ReactiveProperty<string> ResultText { get; set; }
         public ReadOnlyReactiveCollection<ButtonInfoViewModel> Data { get; set; }
         #endregion
 
 
         #region Event Methods
-        public async Task Information_ClickedAsync()
+        public async Task Information_ClickedAsync(ButtonInfo sender)
         {
-            await nav.PushAsync(new Calculator());
+            await model.ShowCalulator(nav, sender);
         }
         #endregion
     }

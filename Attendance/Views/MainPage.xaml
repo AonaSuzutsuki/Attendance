@@ -15,7 +15,7 @@
             </Grid.RowDefinitions>
             
             <Grid Grid.Row="0">
-                <Label FontSize="50" Text="100" TextColor="#fff" />
+                <Label FontSize="50" Text="{Binding ResultText.Value}" TextColor="#fff" />
             </Grid>
             
             <Grid Grid.Row="1" RowSpacing="0">
@@ -27,7 +27,7 @@
                                   BackgroundColor="Transparent">
                     <flv:FlowListView.FlowColumnTemplate>
                         <DataTemplate>
-                            <ctrl:ListButton Image="{Binding Image}" Name="{Binding Name}" TappedCommand="{Binding TappedCommand}" />
+                            <ctrl:ListButton Count="{Binding Count.Value}" Name="{Binding Namet.Value}" TappedCommand="{Binding TappedCommand}" />
                         </DataTemplate>
                     </flv:FlowListView.FlowColumnTemplate>
                 </flv:FlowListView>

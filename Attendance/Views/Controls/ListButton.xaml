@@ -9,7 +9,7 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <Image Source="{Binding Image.Value}" HorizontalOptions="Center" VerticalOptions="Center" />
+                <Label Text="{Binding Count.Value}" TextColor="#58BE89" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" />
             </Grid>
             <Grid Grid.Row="1">
                 <Label Text="{Binding Name.Value}" TextColor="#58BE89" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" />
@@ -17,7 +17,7 @@
         </Grid>
         <Grid>
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding TappedCommand}" Tapped="TapGestureRecognizer_TappedAsync" />
+                <TapGestureRecognizer Command="{Binding TappedCommand}" CommandParameter="{Binding CommandParameter}" Tapped="TapGestureRecognizer_TappedAsync" />
             </Grid.GestureRecognizers>
         </Grid>
     </Grid>

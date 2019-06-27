@@ -22,5 +22,12 @@ namespace KimamaXamarinLib.ViewModels
             command.Subscribe(func);
             return command;
         }
+
+        public static AsyncReactiveCommand<T> CreateAsyncReactiveCommand<T>(Func<T, Task> func)
+        {
+            var command = new AsyncReactiveCommand<T>();
+            command.Subscribe(func);
+            return command;
+        }
     }
 }

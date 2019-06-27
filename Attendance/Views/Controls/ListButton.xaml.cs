@@ -13,11 +13,11 @@ namespace Denomination.Views.Controls
 {
     public class ListButtonViewModel : BindableBase
     {
-        ReactiveProperty<ImageSource> image = new ReactiveProperty<ImageSource>();
-        public ReactiveProperty<ImageSource> Image
+        ReactiveProperty<int> count = new ReactiveProperty<int>();
+        public ReactiveProperty<int> Count
         {
-            get => image;
-            set => SetProperty(ref image, value);
+            get => count;
+            set => SetProperty(ref count, value);
         }
 
         ReactiveProperty<string> name = new ReactiveProperty<string>();
@@ -32,6 +32,13 @@ namespace Denomination.Views.Controls
         {
             get => tappedCommand;
             set => SetProperty(ref tappedCommand, value);
+        }
+
+        object commandParameter;
+        public object CommandParameter
+        {
+            get => commandParameter;
+            set => SetProperty(ref commandParameter, value);
         }
     }
 
@@ -55,17 +62,17 @@ namespace Denomination.Views.Controls
         }
 
         [Obsolete]
-        public static readonly BindableProperty ImageProperty = BindableProperty.Create<ListButton, ImageSource>(p => p.Image, null,
-            propertyChanged: (bindable, oldValue, newValue) => ((ListButton)bindable).Image = newValue);
+        public static readonly BindableProperty CountProperty = BindableProperty.Create<ListButton, int>(p => p.Count, 0,
+            propertyChanged: (bindable, oldValue, newValue) => ((ListButton)bindable).Count = newValue);
 
         [Obsolete]
-        public ImageSource Image
+        public int Count
         {
-            get { return (ImageSource)GetValue(ImageProperty); }
+            get { return (int)GetValue(CountProperty); }
             set
             {
-                SetValue(ImageProperty, value);
-                vm.Image.Value = value;
+                SetValue(CountProperty, value);
+                vm.Count.Value = value;
             }
         }
 
@@ -96,6 +103,22 @@ namespace Denomination.Views.Controls
             {
                 SetValue(TappedCommandProperty, value);
                 vm.TappedCommand = value;
+            }
+        }
+
+        //CommandParameter
+        [Obsolete]
+        public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create<ListButton, object>(p => p.CommandParameter, null,
+            propertyChanged: (bindable, oldValue, newValue) => ((ListButton)bindable).CommandParameter = newValue);
+
+        [Obsolete]
+        public object CommandParameter
+        {
+            get { return GetValue(CommandParameterProperty); }
+            set
+            {
+                SetValue(CommandParameterProperty, value);
+                vm.CommandParameter = value;
             }
         }
     }
