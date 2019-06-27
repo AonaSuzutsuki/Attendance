@@ -9,10 +9,10 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <Label Text="{Binding Count.Value}" TextColor="#58BE89" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Label Text="{Binding Count.Value}" TextColor="#fff" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" />
             </Grid>
             <Grid Grid.Row="1">
-                <Label Text="{Binding Name.Value}" TextColor="#58BE89" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Label Text="{Binding Name.Value}" TextColor="#fff" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" />
             </Grid>
         </Grid>
         <Grid>

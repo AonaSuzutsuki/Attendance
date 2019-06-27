@@ -27,7 +27,7 @@
                                   BackgroundColor="Transparent">
                     <flv:FlowListView.FlowColumnTemplate>
                         <DataTemplate>
-                            <ctrl:ListButton Count="{Binding Count.Value}" Name="{Binding Namet.Value}" TappedCommand="{Binding TappedCommand}" />
+                            <ctrl:ListButton Margin="5" BackgroundColor="#4090ff" Count="{Binding Count.Value}" Name="{Binding Namet.Value}" TappedCommand="{Binding TappedCommand}" />
                         </DataTemplate>
                     </flv:FlowListView.FlowColumnTemplate>
                 </flv:FlowListView>
