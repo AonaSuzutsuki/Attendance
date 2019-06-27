@@ -99,6 +99,7 @@ namespace Attendance.Models
             if (calculatorType.IsNum())
             {
                 ResultInteger = (ResultInteger * 10) + calculatorType.ToInt();
+                SetReturnResult(ResultInteger);
             }
             else
             {

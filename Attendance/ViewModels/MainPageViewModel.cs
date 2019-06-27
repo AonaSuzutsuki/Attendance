@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using System.Reactive.Concurrency;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Attendance.Models;
@@ -7,6 +8,7 @@ using Attendance.Views;
 using KimamaXamarinLib.ViewModels;
 using Prism.Mvvm;
 using Reactive.Bindings;
+using Reactive.Bindings.Extensions;
 using Xamarin.Forms;
 
 namespace Attendance.ViewModels
@@ -16,7 +18,7 @@ namespace Attendance.ViewModels
         public ButtonInfoViewModel(ButtonInfo buttonInfo)
         {
             this.Name = ReactiveProperty.FromObject(buttonInfo, m => m.Name);
-            this.Count = ReactiveProperty.FromObject(buttonInfo, m => m.Count);
+            this.Count = buttonInfo.ToReactivePropertyAsSynchronized(m => m.Count);
             this.CommandParameter = buttonInfo.Sender;
         }
 
@@ -34,7 +36,9 @@ namespace Attendance.ViewModels
         {
             this.model = model;
 
-            this.Data = model.Buttons.ToReadOnlyReactiveCollection(m => new ButtonInfoViewModel(m));
+            ResultText = model.ToReactivePropertyAsSynchronized(m => m.ResultText);
+
+            this.Data = model.Buttons.ToReadOnlyReactiveCollection(m => new ButtonInfoViewModel(m), Scheduler.CurrentThread);
             this.AssociateCommand(0, CreateAsyncReactiveCommand<ButtonInfo>(async (price) => await Information_ClickedAsync(price)));
             this.AssociateCommand(1, CreateAsyncReactiveCommand<ButtonInfo>(async (price) => await Information_ClickedAsync(price)));
             this.AssociateCommand(2, CreateAsyncReactiveCommand<ButtonInfo>(async (price) => await Information_ClickedAsync(price)));

@@ -50,6 +50,17 @@ namespace Attendance.Models
             set => SetProperty(ref buttons, value);
         }
 
+        public void Calculate()
+        {
+            BigInteger bigInteger = 0;
+            foreach (var elem in Buttons)
+            {
+                var res = elem.Count * elem.Price;
+                bigInteger += res;
+            }
+            ResultText = bigInteger.ToString();
+        }
+
         public async Task ShowCalulator(INavigation nav, ButtonInfo sender)
         {
             var calc = new Calculator(sender);
@@ -60,6 +71,7 @@ namespace Attendance.Models
         private void Calc_Equaled(object sender, Calculator.CalculatorEventArgs e)
         {
             e.Sender.Count = (int)e.Integer;
+            Calculate();
         }
     }
 }
