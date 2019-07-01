@@ -90,7 +90,7 @@ namespace Attendance.Models
                 var res = elem.Count * elem.Price;
                 bigInteger += res;
             }
-            ResultText = bigInteger.ToString();
+            ResultText = bigInteger.ToFormattedString();
         }
 
         public async Task ShowCalulator(INavigation nav, ButtonInfo sender)

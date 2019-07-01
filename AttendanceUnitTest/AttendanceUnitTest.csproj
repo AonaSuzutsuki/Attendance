@@ -44,10 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Models\Extentions\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\ReversePolandTest.cs" />
     <Compile Include="Models\CalculateReversePolishTest.cs" />
+    <Compile Include="Models\Extentions\StringExtention.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
