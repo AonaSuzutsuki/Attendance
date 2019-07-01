@@ -18,6 +18,7 @@ namespace Attendance
             MainPage = new NavigationPage(page);
             var navigationPage = Current.MainPage as NavigationPage;
             navigationPage.BarBackgroundColor = Color.Black;
+            navigationPage.BarTextColor = Color.White;
         }
 
         protected override void OnStart()
