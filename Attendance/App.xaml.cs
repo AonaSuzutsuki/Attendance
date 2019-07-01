@@ -7,23 +7,27 @@ namespace Attendance
 {
     public partial class App : Application
     {
+        private readonly MainPage page;
+
         public App()
         {
+            page = new MainPage();
+
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(page);
             var navigationPage = Current.MainPage as NavigationPage;
             navigationPage.BarBackgroundColor = Color.Black;
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            page.Load();
         }
 
         protected override void OnSleep()
         {
-            // Handle when your app sleeps
+            page.Save();
         }
 
         protected override void OnResume()

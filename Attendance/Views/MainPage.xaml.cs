@@ -15,5 +15,15 @@ namespace Attendance.Views
             var vm = new ViewModels.MainPageViewModel(Navigation, model);
             BindingContext = vm;
         }
+
+        public void Save()
+        {
+            vm.Save();
+        }
+
+        public void Load()
+        {
+            vm.Load();
+        }
     }
 }

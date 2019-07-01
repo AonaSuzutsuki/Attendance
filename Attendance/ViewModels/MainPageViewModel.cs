@@ -68,5 +68,15 @@ namespace Attendance.ViewModels
             await model.ShowCalulator(nav, sender);
         }
         #endregion
+
+        public void Load()
+        {
+            model.Load();
+        }
+
+        public void Save()
+        {
+            model.Save();
+        }
     }
 }
