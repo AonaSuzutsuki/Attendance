@@ -18,7 +18,8 @@
             </Grid.RowDefinitions>
             
             <Grid Grid.Row="0">
-                <Label FontSize="50" Text="{Binding ResultText.Value}" TextColor="#fff" />
+                <Entry FontSize="40" Text="{Binding ResultText.Value}" TextColor="#fff"
+                        IsReadOnly="true" BackgroundColor="Transparent" />
             </Grid>
             
             <Grid Grid.Row="1" RowSpacing="0">
@@ -30,10 +31,22 @@
                                   BackgroundColor="Transparent">
                     <flv:FlowListView.FlowColumnTemplate>
                         <DataTemplate>
-                            <ctrl:ListButton Margin="5" BackgroundColor="#4090ff" Count="{Binding Count.Value}" Name="{Binding Namet.Value}" TappedCommand="{Binding TappedCommand}" />
+                            <ctrl:ListButton Margin="5" BackgroundColor="#4090ff" Count="{Binding Count.Value}"
+                                             Name="{Binding Namet.Value}" TappedCommand="{Binding TappedCommand}" />
                         </DataTemplate>
                     </flv:FlowListView.FlowColumnTemplate>
                 </flv:FlowListView>
+                
+                <!--<Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>-->
             </Grid>
         </Grid>
     </ContentPage.Content>
