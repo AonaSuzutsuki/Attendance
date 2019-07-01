@@ -45,7 +45,7 @@ namespace Denomination.Views.Controls
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ListButton : ContentView
     {
-        ListButtonViewModel vm;
+        private readonly ListButtonViewModel vm;
         public ListButton ()
 		{
 			InitializeComponent ();
@@ -61,11 +61,18 @@ namespace Denomination.Views.Controls
             await grid.FadeTo(1);
         }
 
-        [Obsolete]
-        public static readonly BindableProperty CountProperty = BindableProperty.Create<ListButton, int>(p => p.Count, 0,
-            propertyChanged: (bindable, oldValue, newValue) => ((ListButton)bindable).Count = newValue);
+        //public static readonly BindableProperty CountProperty = BindableProperty.Create<ListButton, int>(p => p.Count, 0,
+        //    propertyChanged: (bindable, oldValue, newValue) => ((ListButton)bindable).Count = newValue);
 
-        [Obsolete]
+        public static readonly BindableProperty CountProperty = BindableProperty.Create(
+            nameof(Count),
+            typeof(int),
+            typeof(ListButton),
+            0,
+            propertyChanged: (bindable, oldValue, newValue) => ((ListButton)bindable).Count = (int)newValue,
+            defaultBindingMode: BindingMode.TwoWay
+        );
+
         public int Count
         {
             get { return (int)GetValue(CountProperty); }
@@ -76,11 +83,18 @@ namespace Denomination.Views.Controls
             }
         }
 
-        [Obsolete]
-        public static readonly BindableProperty NameProperty = BindableProperty.Create<ListButton, string>(p => p.Name, null,
-            propertyChanged: (bindable, oldValue, newValue) => ((ListButton)bindable).Name = newValue);
+        //public static readonly BindableProperty NameProperty = BindableProperty.Create<ListButton, string>(p => p.Name, null,
+        //    propertyChanged: (bindable, oldValue, newValue) => ((ListButton)bindable).Name = newValue);
 
-        [Obsolete]
+        public static readonly BindableProperty NameProperty = BindableProperty.Create(
+            nameof(Name),
+            typeof(string),
+            typeof(ListButton),
+            string.Empty,
+            propertyChanged: (bindable, oldValue, newValue) => ((ListButton)bindable).Name = (string)newValue,
+            defaultBindingMode: BindingMode.TwoWay
+        );
+
         public string Name
         {
             get { return (string)GetValue(NameProperty); }
@@ -91,11 +105,18 @@ namespace Denomination.Views.Controls
             }
         }
 
-        [Obsolete]
-        public static readonly BindableProperty TappedCommandProperty = BindableProperty.Create<ListButton, ICommand>(p => p.TappedCommand, null,
-            propertyChanged: (bindable, oldValue, newValue) => ((ListButton)bindable).TappedCommand = newValue);
+        //public static readonly BindableProperty TappedCommandProperty = BindableProperty.Create<ListButton, ICommand>(p => p.TappedCommand, null,
+        //    propertyChanged: (bindable, oldValue, newValue) => ((ListButton)bindable).TappedCommand = newValue);
 
-        [Obsolete]
+        public static readonly BindableProperty TappedCommandProperty = BindableProperty.Create(
+            nameof(Name),
+            typeof(ICommand),
+            typeof(ListButton),
+            null,
+            propertyChanged: (bindable, oldValue, newValue) => ((ListButton)bindable).TappedCommand = (ICommand)newValue,
+            defaultBindingMode: BindingMode.TwoWay
+        );
+
         public ICommand TappedCommand
         {
             get { return (ICommand)GetValue(TappedCommandProperty); }
@@ -107,11 +128,18 @@ namespace Denomination.Views.Controls
         }
 
         //CommandParameter
-        [Obsolete]
-        public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create<ListButton, object>(p => p.CommandParameter, null,
-            propertyChanged: (bindable, oldValue, newValue) => ((ListButton)bindable).CommandParameter = newValue);
+        //public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create<ListButton, object>(p => p.CommandParameter, null,
+        //    propertyChanged: (bindable, oldValue, newValue) => ((ListButton)bindable).CommandParameter = newValue);
 
-        [Obsolete]
+        public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create(
+            nameof(Name),
+            typeof(object),
+            typeof(ListButton),
+            null,
+            propertyChanged: (bindable, oldValue, newValue) => ((ListButton)bindable).CommandParameter = newValue,
+            defaultBindingMode: BindingMode.TwoWay
+        );
+
         public object CommandParameter
         {
             get { return GetValue(CommandParameterProperty); }
