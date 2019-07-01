@@ -38,6 +38,8 @@ namespace Attendance.ViewModels
 
             ResultText = model.ToReactivePropertyAsSynchronized(m => m.ResultText);
 
+            NewBtClicked = new Command(NewBt_Clicked);
+
             this.Data = model.Buttons.ToReadOnlyReactiveCollection(m => new ButtonInfoViewModel(m), Scheduler.CurrentThread);
             this.AssociateCommand(0, CreateAsyncReactiveCommand<ButtonInfo>(async (price) => await Information_ClickedAsync(price)));
             this.AssociateCommand(1, CreateAsyncReactiveCommand<ButtonInfo>(async (price) => await Information_ClickedAsync(price)));
@@ -61,8 +63,17 @@ namespace Attendance.ViewModels
         public ReadOnlyReactiveCollection<ButtonInfoViewModel> Data { get; set; }
         #endregion
 
+        #region Event Properties
+        public ICommand NewBtClicked { get; set; }
+        #endregion
+
 
         #region Event Methods
+        public void NewBt_Clicked()
+        {
+            model.NewData();
+        }
+
         public async Task Information_ClickedAsync(ButtonInfo sender)
         {
             await model.ShowCalulator(nav, sender);

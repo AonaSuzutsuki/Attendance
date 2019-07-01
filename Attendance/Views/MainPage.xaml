@@ -6,6 +6,9 @@
     xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
     x:Class="Attendance.Views.MainPage"
     BackgroundColor="#000">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="New" Command="{Binding NewBtClicked}" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid Padding="10">
             

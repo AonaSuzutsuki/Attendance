@@ -82,6 +82,14 @@ namespace Attendance.Models
             var filename = Path.Combine(documents, "save.json");
             File.WriteAllText(filename, json);
         }
+
+        public void NewData()
+        {
+            foreach (var button in Buttons)
+                button.Count = 0;
+            ResultText = "0";
+        }
+
         public void Calculate()
         {
             BigInteger bigInteger = 0;
