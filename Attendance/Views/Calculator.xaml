@@ -50,6 +50,11 @@
                     Text="AC"
                     Command="{Binding ButtonPushed}"
                     CommandParameter="{x:Static models:CalculatorType.AC}" />
+            <Button Grid.Row="0" Grid.Column="1"
+                    Style="{StaticResource CalcButton}"
+                    Text="←"
+                    Command="{Binding ButtonPushed}"
+                    CommandParameter="{x:Static models:CalculatorType.Back}" />
             
             <Button Grid.Row="1" Grid.Column="0"
                     Style="{StaticResource CalcButton}"
@@ -136,10 +141,6 @@
                     Command="{Binding ButtonPushed}"
                     CommandParameter="{x:Static models:CalculatorType.Equal}" />
             
-            <Button Grid.Row="0" Grid.Column="1"
-                    Style="{StaticResource CalcButton}"
-                    Text=""
-                    BackgroundColor="#333" />
             <Button Grid.Row="0" Grid.Column="2"
                     Style="{StaticResource CalcButton}"
                     BackgroundColor="#333"

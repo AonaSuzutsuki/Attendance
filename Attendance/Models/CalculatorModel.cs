@@ -9,6 +9,7 @@ namespace Attendance.Models
     {
         Unknown = -99,
         AC,
+        Back,
         Equal,
         Plus,
         Minus,
@@ -93,6 +94,12 @@ namespace Attendance.Models
             {
                 inputs.Add(ResultInteger);
                 Calculate();
+                return;
+            }
+            else if (calculatorType == CalculatorType.Back)
+            {
+                ResultInteger /= 10;
+                SetReturnResult(ResultInteger);
                 return;
             }
 
