@@ -7,12 +7,14 @@ namespace Attendance.Views
 {
     public partial class MainPage : ContentPage
     {
+        private readonly ViewModels.MainPageViewModel vm;
+
         public MainPage()
         {
             InitializeComponent();
 
             var model = new Models.MainPageModel();
-            var vm = new ViewModels.MainPageViewModel(Navigation, model);
+            vm = new ViewModels.MainPageViewModel(Navigation, model);
             BindingContext = vm;
         }
 
