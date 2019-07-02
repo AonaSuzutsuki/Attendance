@@ -10,20 +10,21 @@
         <ToolbarItem Text="New" Command="{Binding NewBtClicked}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <Grid Padding="10">
+        <Grid Margin="10,10,10,25">
             
             <Grid.RowDefinitions>
-                <RowDefinition Height="100" />
+                <RowDefinition Height="200" />
                 <RowDefinition />
             </Grid.RowDefinitions>
             
             <Grid Grid.Row="0">
                 <Entry FontSize="40" Text="{Binding ResultText.Value}" TextColor="#fff"
-                        IsReadOnly="true" BackgroundColor="Transparent" />
+                       IsReadOnly="true" BackgroundColor="Transparent"
+                       VerticalOptions="End" />
             </Grid>
             
             <Grid Grid.Row="1" RowSpacing="0">
-                <flv:FlowListView FlowItemsSource="{Binding Data}"
+                <!--<flv:FlowListView FlowItemsSource="{Binding Data}"
                                   SeparatorVisibility="None"
                                   FlowUseAbsoluteLayoutInternally="True"
                                   FlowColumnCount="3"
@@ -31,13 +32,16 @@
                                   BackgroundColor="Transparent">
                     <flv:FlowListView.FlowColumnTemplate>
                         <DataTemplate>
-                            <ctrl:ListButton Margin="5" BackgroundColor="#4090ff" Count="{Binding Count.Value}"
-                                             Name="{Binding Namet.Value}" TappedCommand="{Binding TappedCommand}" />
+                            <ctrl:ListButton Margin="5" BackgroundColor="#4090ff"
+                                             Count="{Binding Count.Value}"
+                                             Name="{Binding Name.Value}"
+                                             TappedCommand="{Binding TappedCommand}"
+                                             CommandParameter="{Binding CommandParameter}" />
                         </DataTemplate>
                     </flv:FlowListView.FlowColumnTemplate>
-                </flv:FlowListView>
+                </flv:FlowListView>-->
                 
-                <!--<Grid.RowDefinitions>
+                <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
                     <RowDefinition />
@@ -46,7 +50,73 @@
                     <ColumnDefinition />
                     <ColumnDefinition />
                     <ColumnDefinition />
-                </Grid.ColumnDefinitions>-->
+                </Grid.ColumnDefinitions>
+                
+                <ctrl:ListButton Margin="5"
+                                 BackgroundColor="#4090ff"
+                                 Count="{Binding Data[0].Count.Value}"
+                                 Name="{Binding Data[0].Name}"
+                                 TappedCommand="{Binding Data[0].TappedCommand}"
+                                 CommandParameter="{Binding Data[0].CommandParameter}"/>
+                <ctrl:ListButton Grid.Row="0" Grid.Column="1"
+                                 Margin="2.5,5,5,5"
+                                 BackgroundColor="#4090ff"
+                                 Count="{Binding Data[1].Count.Value}"
+                                 Name="{Binding Data[1].Name}"
+                                 TappedCommand="{Binding Data[1].TappedCommand}"
+                                 CommandParameter="{Binding Data[1].CommandParameter}"/>
+                <ctrl:ListButton Grid.Row="0" Grid.Column="2"
+                                 Margin="2.5,5,5,5"
+                                 BackgroundColor="#4090ff"
+                                 Count="{Binding Data[2].Count.Value}"
+                                 Name="{Binding Data[2].Name}"
+                                 TappedCommand="{Binding Data[2].TappedCommand}"
+                                 CommandParameter="{Binding Data[2].CommandParameter}"/>
+                
+                <ctrl:ListButton Grid.Row="1" Grid.Column="0"
+                                 Margin="5"
+                                 BackgroundColor="#4090ff"
+                                 Count="{Binding Data[3].Count.Value}"
+                                 Name="{Binding Data[3].Name}"
+                                 TappedCommand="{Binding Data[3].TappedCommand}"
+                                 CommandParameter="{Binding Data[3].CommandParameter}"/>
+                <ctrl:ListButton Grid.Row="1" Grid.Column="1"
+                                 Margin="2.5,5,5,5"
+                                 BackgroundColor="#4090ff"
+                                 Count="{Binding Data[4].Count.Value}"
+                                 Name="{Binding Data[4].Name}"
+                                 TappedCommand="{Binding Data[4].TappedCommand}"
+                                 CommandParameter="{Binding Data[4].CommandParameter}"/>
+                <ctrl:ListButton Grid.Row="1" Grid.Column="2"
+                                 Margin="2.5,5,5,5"
+                                 BackgroundColor="#4090ff"
+                                 Count="{Binding Data[5].Count.Value}"
+                                 Name="{Binding Data[5].Name}"
+                                 TappedCommand="{Binding Data[5].TappedCommand}"
+                                 CommandParameter="{Binding Data[5].CommandParameter}"/>
+                
+                <ctrl:ListButton Grid.Row="2" Grid.Column="0"
+                                 Margin="5"
+                                 BackgroundColor="#4090ff"
+                                 Count="{Binding Data[6].Count.Value}"
+                                 Name="{Binding Data[6].Name}"
+                                 TappedCommand="{Binding Data[6].TappedCommand}"
+                                 CommandParameter="{Binding Data[6].CommandParameter}"/>
+                <ctrl:ListButton Grid.Row="2" Grid.Column="1"
+                                 Margin="2.5,5,5,5"
+                                 BackgroundColor="#4090ff"
+                                 Count="{Binding Data[7].Count.Value}"
+                                 Name="{Binding Data[7].Name}"
+                                 TappedCommand="{Binding Data[7].TappedCommand}"
+                                 CommandParameter="{Binding Data[7].CommandParameter}"/>
+                <ctrl:ListButton Grid.Row="2" Grid.Column="2"
+                                 Margin="2.5,5,5,5"
+                                 BackgroundColor="#4090ff"
+                                 Count="{Binding Data[8].Count.Value}"
+                                 Name="{Binding Data[8].Name}"
+                                 TappedCommand="{Binding Data[8].TappedCommand}"
+                                 CommandParameter="{Binding Data[8].CommandParameter}"/>
+                
             </Grid>
         </Grid>
     </ContentPage.Content>

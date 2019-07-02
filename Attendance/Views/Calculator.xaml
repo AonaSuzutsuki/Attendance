@@ -18,13 +18,13 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     
-    <Grid>
+    <Grid Margin="15,15,15,25">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
+            <RowDefinition Height="200" />
             <RowDefinition />
         </Grid.RowDefinitions>
         
-        <Grid Margin="10" VerticalOptions="Center">
+        <Grid Margin="10" VerticalOptions="End">
             <Label FontSize="50" Text="{Binding ResultText.Value}" TextColor="#fff" />
         </Grid>
         
