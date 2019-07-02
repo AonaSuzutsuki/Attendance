@@ -9,15 +9,15 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <Label Text="{Binding Count.Value}" TextColor="#fff" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Label x:Name="CountLabel" Text="0" TextColor="#fff" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" />
             </Grid>
             <Grid Grid.Row="1">
-                <Label Text="{Binding Name.Value}" TextColor="#fff" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" />
+                <Label x:Name="NameLabel" TextColor="#fff" FontSize="Default" VerticalOptions="Center" HorizontalOptions="Center" />
             </Grid>
         </Grid>
         <Grid>
             <Grid.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding TappedCommand}" CommandParameter="{Binding CommandParameter}" Tapped="TapGestureRecognizer_TappedAsync" />
+                <TapGestureRecognizer x:Name="GridButton" Tapped="TapGestureRecognizer_TappedAsync" />
             </Grid.GestureRecognizers>
         </Grid>
     </Grid>

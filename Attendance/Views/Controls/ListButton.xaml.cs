@@ -45,13 +45,16 @@ namespace Denomination.Views.Controls
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ListButton : ContentView
     {
+        private ICommand tappedCommand;
+        private object commandParameter;
+
         private readonly ListButtonViewModel vm;
         public ListButton ()
 		{
 			InitializeComponent ();
 
-            vm = new ListButtonViewModel();
-            BindingContext = vm;
+            //vm = new ListButtonViewModel();
+            //BindingContext = vm;
 		}
 
         private async void TapGestureRecognizer_TappedAsync(object sender, EventArgs e)
@@ -79,7 +82,7 @@ namespace Denomination.Views.Controls
             set
             {
                 SetValue(CountProperty, value);
-                vm.Count.Value = value;
+                CountLabel.Text = value.ToString();
             }
         }
 
@@ -101,7 +104,7 @@ namespace Denomination.Views.Controls
             set
             {
                 SetValue(NameProperty, value);
-                vm.Name.Value = value;
+                NameLabel.Text = value;
             }
         }
 
@@ -123,7 +126,8 @@ namespace Denomination.Views.Controls
             set
             {
                 SetValue(TappedCommandProperty, value);
-                vm.TappedCommand = value;
+                GridButton.Command = value;
+                //tappedCommand = value;
             }
         }
 
@@ -146,7 +150,8 @@ namespace Denomination.Views.Controls
             set
             {
                 SetValue(CommandParameterProperty, value);
-                vm.CommandParameter = value;
+                GridButton.CommandParameter = value;
+                //commandParameter = value;
             }
         }
     }
