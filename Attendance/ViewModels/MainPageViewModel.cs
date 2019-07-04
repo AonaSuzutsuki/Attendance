@@ -48,7 +48,7 @@ namespace Attendance.ViewModels
             Data = model.Buttons.ToReadOnlyReactiveCollection(m => new ButtonInfoViewModel(m), Scheduler.CurrentThread);
             foreach (var item in Data.Select((v, i) => new { Index = i, Value = v }))
             {
-                AssociateCommand(item.Value, item.Index, CreateAsyncReactiveCommand<ButtonInfo>(async (info) => await Information_ClickedAsync(info)));
+                AssociateCommand(item.Value, CreateAsyncReactiveCommand<ButtonInfo>(async (info) => await Information_ClickedAsync(info)));
             }
             //this.AssociateCommand(0, CreateAsyncReactiveCommand<ButtonInfo>(async (price) => await Information_ClickedAsync(price)));
             //this.AssociateCommand(1, CreateAsyncReactiveCommand<ButtonInfo>(async (price) => await Information_ClickedAsync(price)));
@@ -61,7 +61,7 @@ namespace Attendance.ViewModels
             //this.AssociateCommand(8, CreateAsyncReactiveCommand<ButtonInfo>(async (price) => await Information_ClickedAsync(price)));
         }
 
-        private static void AssociateCommand(ButtonInfoViewModel buttonInfoViewModel, int index, ICommand cmd)
+        private static void AssociateCommand(ButtonInfoViewModel buttonInfoViewModel, ICommand cmd)
         {
             //if (index < enumerable.Count && index >= 0)
             buttonInfoViewModel.TappedCommand = cmd;
